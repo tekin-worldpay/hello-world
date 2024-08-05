@@ -35,3 +35,9 @@ tasks.withType(JavaCompile).configureEach {
 tasks.withType(Test).configureEach {
 	jvmArgs += "--enable-preview"
 }
+
+sonarqube {
+	properties {
+		property "sonar.java.binaries", "${buildDir}/classes/java/main"
+	}
+}
