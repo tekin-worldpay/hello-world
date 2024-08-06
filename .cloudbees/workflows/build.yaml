@@ -6,6 +6,11 @@ on:
   push:
     branches:
       - '**'
+    paths:
+      - '.cloudbees/workflows/**'
+      - 'build.gradle'
+      - 'settings.gradle'
+      - 'src/**'
 
 jobs:
   java-build:
