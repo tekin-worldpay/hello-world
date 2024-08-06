@@ -18,7 +18,6 @@ jobs:
       - name: gradle test
         uses: docker://gradle:8.6-jdk21-alpine
         run: ./gradlew test
-      - name: scan
-        uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
-        with:
-          language: JAVA
+      - name: sonar-scan
+        uses: docker://gradle:8.6-jdk21-alpine
+        run: ./gradlew sonar
