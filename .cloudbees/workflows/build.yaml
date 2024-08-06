@@ -17,9 +17,9 @@ jobs:
     steps:
       - name: checkout
         uses: cloudbees-io/checkout@v1
-      #- name: gradle build
-      #  uses: docker://gradle:8.6-jdk21-alpine
-      #  run: ./gradlew build
+      - name: gradle build
+        uses: docker://gradle:8.6-jdk21-alpine
+        run: ./gradlew build
       #- name: gradle test
       #  uses: docker://gradle:8.6-jdk21-alpine
       #  run: ./gradlew test
