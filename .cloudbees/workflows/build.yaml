@@ -24,6 +24,7 @@ jobs:
       #  uses: docker://gradle:8.6-jdk21-alpine
       #  run: ./gradlew test
       - name: testing
+        uses: docker://gradle:8.6-jdk21-alpine
         run: echo $[hello]
       - name: sonar-scan
         uses: docker://gradle:8.6-jdk21-alpine
