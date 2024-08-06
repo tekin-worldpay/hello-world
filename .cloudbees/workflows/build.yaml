@@ -9,6 +9,7 @@ on:
     paths:
       - '.cloudbees/workflows/**'
       - 'build.gradle'
+      - 'settings.gradle'
       - 'src/**'
 
 jobs:
