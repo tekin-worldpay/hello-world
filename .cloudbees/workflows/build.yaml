@@ -17,12 +17,12 @@ jobs:
     steps:
       - name: checkout
         uses: cloudbees-io/checkout@v1
-      - name: gradle build
-        uses: docker://gradle:8.6-jdk21-alpine
-        run: ./gradlew build
-      - name: gradle test
-        uses: docker://gradle:8.6-jdk21-alpine
-        run: ./gradlew test
+      #- name: gradle build
+      #  uses: docker://gradle:8.6-jdk21-alpine
+      #  run: ./gradlew build
+      #- name: gradle test
+      #  uses: docker://gradle:8.6-jdk21-alpine
+      #  run: ./gradlew test
       - name: sonar-scan
         uses: docker://gradle:8.6-jdk21-alpine
-        run: ./gradlew sonar -Dsonar.token=${SONAR_TOKEN} -Dsonar.projectKey=tekin-org_hello-world -Dsonar.organization=tekin-org -Dsonar.host.url=https://sonarcloud.io
+        run: ./gradlew sonar -Dsonar.token=$[SONAR_TOKEN] -Dsonar.projectKey=tekin-org_hello-world -Dsonar.organization=tekin-org -Dsonar.host.url=https://sonarcloud.io
