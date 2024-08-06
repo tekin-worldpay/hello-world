@@ -24,7 +24,7 @@ jobs:
       #  run: ./gradlew test
       - name: testing
         uses: docker://gradle:8.6-jdk21-alpine
-        run: echo $[hello]
-      - name: sonar-scan
-        uses: docker://gradle:8.6-jdk21-alpine
-        run: ./gradlew sonar -Dsonar.token=$[SONAR_TOKEN] -Dsonar.projectKey=tekin-org_hello-world -Dsonar.organization=tekin-org -Dsonar.host.url=https://sonarcloud.io
+        run: echo ${{ properties.hello }}
+      #- name: sonar-scan
+      #  uses: docker://gradle:8.6-jdk21-alpine
+      #  run: ./gradlew sonar -Dsonar.token=$[SONAR_TOKEN] -Dsonar.projectKey=tekin-org_hello-world -Dsonar.organization=tekin-org -Dsonar.host.url=https://sonarcloud.io
