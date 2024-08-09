@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
 	toolchain {
@@ -35,6 +35,17 @@ tasks.withType(JavaCompile).configureEach {
 
 tasks.withType(Test).configureEach {
 	jvmArgs += "--enable-preview"
+}
+
+tasks.named('bootBuildImage') {
+	imageName = "tekinwp/hello-world:$System.env.TAGGED_VERSION"
+	publish = true
+	docker {
+		publishRegistry {
+			username = "tekinwp"
+			password = "$System.env.DOCKERHUB_TOKEN"
+		}
+	}
 }
 
 sonarqube {

@@ -5,12 +5,9 @@ name: build
 on:
   push:
     branches:
-      - '**'
-    paths:
-      - '.cloudbees/workflows/**'
-      - 'build.gradle'
-      - 'settings.gradle'
-      - 'src/**'
+      - 'main'
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   java-build:
@@ -23,6 +20,9 @@ jobs:
       #- name: gradle test
       #  uses: docker://gradle:8.6-jdk21-alpine
       #  run: ./gradlew test
-      - name: sonar-scan
+      #- name: sonar-scan
+      #  uses: docker://gradle:8.6-jdk21-alpine
+      #  run: ./gradlew sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+      - name: build docker image
         uses: docker://gradle:8.6-jdk21-alpine
-        run: ./gradlew sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew bootBuildImage -DTAGGED_VERSION="${{  github.ref_name }}"
