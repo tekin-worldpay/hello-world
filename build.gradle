@@ -50,8 +50,7 @@ tasks.named('bootBuildImage') {
 
 sonarqube {
 	properties {
-		property "sonar.host.url", "https://sonarcloud.io"
-		property "sonar.organization", "tekin-org"
-		property "sonar.projectKey", "tekin-org_hello-world"
+		property "sonar.projectKey", "hello-world"
+		property "sonar.projectName", "hello-world"
 	}
 }
