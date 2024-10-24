@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent {
+        image 'openjdk:21'
+        args '-v /home/jenkins/.m2:/root/.m2'
+    }
 
     stages {
         stage('Build') {
