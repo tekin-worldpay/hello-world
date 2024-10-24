@@ -20,7 +20,7 @@ class HelloWorldApplicationTests {
 
 	@Test
 	void greetingShouldReturnDefaultMessage() {
-		var url = STR."http://localhost:\{port}/hello";
+		var url = "http://localhost:%d/hello".formatted(port);
 		assertThat(this.restTemplate.getForObject(url, String.class)).contains("hello");
 	}
 
