@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-          image 'openjdk:21'
-          args '-v /home/jenkins/.m2:/root/.m2'
-        }
-    }
+    agent any
 
     stages {
 
@@ -15,7 +10,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh "./gradlew build"
             }
         }
         stage('SonarQube Analysis') {
